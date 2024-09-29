@@ -1,0 +1,8 @@
+rules:
+  - id: go-check-isprivate
+    languages: [go]
+    patterns:
+      - pattern: $IP.IsPrivate()
+      - pattern-not: $IP.IsLinkLocalUnicast()
+    message: "Ensure IP address handling methods include MustParseAddr or ParseIP, and validate the IP using IsPrivate, IsLoopback, or IsLinkLocalUnicast after parsing."
+    severity: WARNING
